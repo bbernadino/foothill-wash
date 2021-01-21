@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foothill Wash</title>
+    <link rel="stylesheet" href="./normalize.css" type="text/css" />
+
+    <style>
+      /*******************/
+      /* Desktop Styles */
+      /*****************/
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        color: #1e3799;
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 8rem;
+      }
+
+      div {
+        font-size: 1rem;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        background-color: #1e3799;
+        transition: all 0.3s;
+        top: 0;
+        color: white;
+        z-index: 10;
+        padding: 30px 10px;
+      }
+
+      #navLogo {
+        height: 3em;
+        transition: all 0.25s;
+      }
+
+      .navItems {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: space-evenly;
+        list-style-type: none;
+        transition: all 0.3s;
+        width: 70%;
+      }
+
+      .navItems li {
+        font-size: 0.9rem;
+        border-radius: 5px;
+        padding: 10px;
+        transition: all 0.25s;
+      }
+
+      .navItems li:hover {
+        background-color: #e58e26;
+        background: #fefefe;
+        color: #1e3799;
+        cursor: pointer;
+      }
+
+      .getApp {
+        background-color: royalblue;
+        border-radius: 5px;
+        color: white;
+      }
+
+      .mainHeader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 10rem;
+        color: #1e3799;
+      }
+
+      .leftHeader {
+        align-self: center;
+      }
+
+      .headerLogo {
+        height: 7rem;
+      }
+
+      .carWashImg {
+        height: 11rem;
+      }
+
+      .storeBtns {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .storeBtns img {
+        height: 2rem;
+        display: flex;
+        margin: 0.5rem;
+      }
+
+      .services {
+        align-self: center;
+        background: #1e3799;
+        color: #fefefe;
+        max-width: 100vw;
+        padding: 0 2rem 2rem 2rem;
+      }
+
+      .services h1 {
+        text-align: center;
+        padding: 3rem;
+      }
+
+      .service {
+        border-radius: 5px;
+        font-weight: 400;
+        font-size: 1.7rem;
+        margin-bottom: -1rem;
+      }
+
+      .description {
+        color: #cce3ff;
+        font-style: italic;
+      }
+
+      .washes {
+        display: flex;
+        flex-direction: column;
+        padding-top: 3rem;
+      }
+
+      .washes h1 {
+        align-self: center;
+        color: #1e3799;
+      }
+
+      .priceCard {
+        text-align: center;
+        align-self: center;
+        width: 80%;
+        border: 2px;
+        padding: 15px 0;
+        box-shadow: -2px 2px 10px -2px rgba(0, 0, 0, 0.75);
+        margin: 1.5rem 0;
+        color: #1e3799;
+        border-radius: 5px;
+      }
+
+      .priceCard p {
+        transition: all 0.4s ease-in-out;
+      }
+
+      .priceCard ul li {
+        padding: 5px;
+      }
+
+      .bestValue {
+        padding: 20px;
+      }
+
+      .detailArrow {
+        height: 1rem;
+        transition: all 0.3s ease-in;
+      }
+
+      .up {
+        transform: rotate(180deg);
+      }
+
+      .infoSection {
+        overflow: hidden;
+        transition: max-height 0.35s ease-in-out;
+        font-size: 1rem;
+        /* note that we're transitioning max-height, not height! */
+        height: auto;
+        max-height: 0px;
+        /* // still have to hard-code a value! */
+      }
+
+      .naomi {
+        background-color: #1e3799;
+        color: #fcfcfc;
+      }
+
+      #map {
+        height: 45vh;
+        width: 100%;
+        margin-top: 10rem;
+      }
+
+      /* .footer {
+        width: 100vw;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #1e3799;
+        color: #fefefe;
+        align-items: center;
+      }
+
+      .footer img {
+        width: 3rem;
+      } */
+
+      .show {
+        max-height: 500px;
+      }
+
+      .footer {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #1e3799;
+        color: #fefefe;
+      }
+
+      .footer h3 {
+        font-size: 20px;
+      }
+
+      .footer p {
+        font-size: 16px;
+      }
+
+      .footerBox {
+        width: 95%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 15px 0;
+        border-bottom: 3px solid #fefefe;
+      }
+
+      .footerBox form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        padding-bottom: 1rem;
+      }
+
+      .formInput {
+        color: #fefefe;
+        font-weight: 300;
+        font-size: 1.2rem;
+        border-radius: 0;
+        line-height: 22px;
+        background-color: #1e3799;
+        border-top-style: none;
+        border-right-style: none;
+        border-left-style: none;
+        border-bottom: 2px solid #fefefe;
+        margin-bottom: 3rem;
+        box-sizing: border-box;
+        width: 20rem;
+      }
+
+      ::placeholder {
+        color: #fefefe;
+      }
+
+      textarea {
+        height: 3rem;
+        line-height: 150%;
+        resize: vertical;
+      }
+
+      .submit {
+        background: #fefefe;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+        color: #1e3799;
+        font-size: 1.2rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: 700;
+        width: 90%;
+      }
+
+      .footerImg img {
+        height: 3rem;
+      }
+    </style>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDZRY7Q5BWQZHFFbiY0Bwt8yGcnRTwFWE&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Nav & Nav Items -->
+    <nav id="nav">
+      <img id="navLogo" src="./all-white.svg" alt="logo" />
+
+      <div class="navItems">
+        <li>Home</li>
+        <li>Contact</li>
+        <li class="getApp">Get App</li>
+      </div>
+    </nav>
+
+    <!-- Main Header with car was svg on the left -->
+    <div class="mainHeader">
+      <!-- Car wash svg -->
+      <img class="headerLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
+      <h3>Get unlimited washes with our app!</h3>
+
+      <div class="storeBtns">
+        <img src="./appStore.png" alt="apple app store" />
+        <img src="./googlePlay.png" alt="google play store" />
+      </div>
+
+      <img class="carWashImg" alt="wash" src="./foothill.png" />
+    </div>
+
+    <div class="services">
+      <h1>Why Foothill?</h1>
+      <p class="service">24/7 service</p>
+      <p class="description">Wash your car when it's most convenient.</p>
+      <p class="service">Unlimited washes</p>
+      <p class="description">Download our app for unlimited washes.</p>
+      <p class="service">Pay however you like</p>
+      <p class="description">We accept tap to pay, scanning code, card, or cash!</p>
+      <p class="service">Family Plans</p>
+      <p class="description">Get discounts when you purchase a family plan.</p>
+      <p class="service">Satisfaction guarantee</p>
+      <p class="description">Not satisfied with your wash? Next one is on us!</p>
+    </div>
+
+    <div class="washes">
+      <h1>Our Washes</h1>
+      <div class="priceCard">
+        <h2>Little Baldy</h2>
+        <!-- Have this hidden when expanded -->
+        <p class="baldyDeets">see details</p>
+        <img class="detailArrow down baldyArrow" src="./blue-arrow.svg" />
+        <div class="baldyInfo infoSection">
+          <ul>
+            <li>Under Carriage & Rocker Blast</li>
+            <li>PreSoak</li>
+            <li>Presoak 2</li>
+            <li>High Pressure Wash</li>
+            <li>Spot Free Rinse</li>
+            <li>Super Dry</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="priceCard naomi bestValue">
+        <h2>Naomi Peak</h2>
+        <p class="naomiDeets">see details</p>
+        <img class="detailArrow down naomiArrow" src="./arrow.svg" />
+        <div class="naomiInfo infoSection">
+          <ul>
+            <li>Under Carriage & Rocker Blast</li>
+            <li>PreSoak</li>
+            <li>Bug Pass</li>
+            <li>Presoak 2</li>
+            <li>High Pressure Wash</li>
+            <li>Triple Foam Polish</li>
+            <li>High Pressure Rinse</li>
+            <li>Lava Glow Wax</li>
+            <li>Rinse</li>
+            <li>Super Sealant</li>
+            <li>Spot Free Rinse</li>
+            <li>Super Dry</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="priceCard">
+        <h2>Logan Peak</h2>
+        <p class="loganDeets">see details</p>
+        <img class="detailArrow down loganArrow" src="./blue-arrow.svg" />
+        <div class="loganInfo infoSection">
+          <ul>
+            <li>Under Carriage & Rocker Blast</li>
+            <li>PreSoak</li>
+            <li>Bug Pass</li>
+            <li>Presoak 2</li>
+            <li>High Pressure Wash</li>
+            <li>Rinse</li>
+            <li>Triple Foam Polish</li>
+            <li>Clear Coat Protectant</li>
+            <li>Spot Free Rinse</li>
+            <li>Super Dry</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- About 
+    <div class="about">
+      <p
+        >We have been helping cache valley keep their cars clean for over 30 years, and now we have
+        made it even better with our new app allowing you to
+      </p> 
+    </div>-->
+
+    <div id="map"></div>
+
+    <!-- <div class="footer">
+      <div>
+        <h3>Contact</h3>
+        <p>foothillwash@gmail.com</p>
+      </div>
+
+      <div>
+        <h3>Address</h3>
+        <p>122 west 900 south utah</p>
+      </div>
+
+      <img src="./googlePlay.png" alt="google play store" />
+      <img src="./appStore.png" alt="app store" />
+    </div> -->
+    <div class="footer">
+      <div class="footerBox">
+        <form>
+          <input name="name" type="text" class="formInput" placeholder="Name" />
+          <input name="email" type="text" class="formInput" placeholder="Email" />
+          <textarea name="text" class="formInput" placeholder="Questions or Comments?"></textarea>
+          <input class="submit" type="submit" value="SUBMIT" />
+        </form>
+      </div>
+
+      <div class="footerBox">
+        <h3>Address</h3>
+        <p>1436 N 1200 E Logan, UT</p>
+      </div>
+
+      <div class="footerBox footerImg">
+        <img src="./appStore.png" alt="apple app store" />
+        <img src="./googlePlay.png" alt="google play store" />
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const nav = document.querySelector("nav");
+    const logo = document.querySelector("#navLogo");
+    const navItems = document.querySelector(".navItems");
+
+    // Arrows for the prices (They should spin)
+    const naomiArrow = document.querySelector(".naomiArrow");
+    const loganArrow = document.querySelector(".loganArrow");
+    const baldyArrow = document.querySelector(".baldyArrow");
+
+    // Info section about the washes that hides and shows
+    const naomiInfo = document.querySelector(".naomiInfo");
+    const loganInfo = document.querySelector(".loganInfo");
+    const baldyInfo = document.querySelector(".baldyInfo");
+    const naomiDeets = document.querySelector(".naomiDeets");
+    const loganDeets = document.querySelector(".loganDeets");
+    const baldyDeets = document.querySelector(".baldyDeets");
+
+    // GET THIS WORKING
+    // const flipArrow = (name) => {
+    //   name.classList.contains("down")
+    //     ? name.classList.replace("down", "up")
+    //     : name.classList.replace("up", "down");
+    // };
+
+    naomiArrow.addEventListener("click", () => {
+      if (naomiArrow.classList.contains("down")) {
+        naomiArrow.classList.replace("down", "up");
+        naomiInfo.classList.add("show");
+        naomiDeets.innerText = "$14";
+      } else {
+        naomiArrow.classList.replace("up", "down");
+        naomiInfo.classList.remove("show");
+        naomiDeets.innerText = "see details";
+      }
+    });
+
+    loganArrow.addEventListener("click", () => {
+      if (loganArrow.classList.contains("down")) {
+        loganArrow.classList.replace("down", "up");
+        loganInfo.classList.add("show");
+        loganDeets.innerText = "$12";
+      } else {
+        loganArrow.classList.replace("up", "down");
+        loganInfo.classList.remove("show");
+        loganDeets.innerText = "see details";
+      }
+    });
+
+    baldyArrow.addEventListener("click", () => {
+      if (baldyArrow.classList.contains("down")) {
+        baldyArrow.classList.replace("down", "up");
+        baldyInfo.classList.add("show");
+        baldyDeets.innerText = "$10";
+      } else {
+        baldyArrow.classList.replace("up", "down");
+        baldyInfo.classList.remove("show");
+        baldyDeets.innerText = "see details";
+      }
+    });
+
+    // Checks where the scroll position is and changes styles
+    // makes the nav go big and small based on scroll
+    const scrollFunction = () => {
+      // Checks if the browser is mobile or not
+      // This is for the styles that are mobile specific
+      // i.e the nav growing and shrinking
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      ) {
+        //
+        //
+        //
+
+        // For mobile device
+
+        //
+        //
+        //
+        //
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+          // After scroll (things are smaller)
+          nav.style.padding = "20px 5px";
+          nav.style.boxShadow = "0 5px 5px rgba(0, 0, 0, 0.5";
+
+          // Nav list item styles
+          navItems.style.fontSize = "1em";
+
+          // Logo styles
+          navLogo.style.height = "2em";
+        } else {
+          // Before scroll (things are UGE)
+          nav.style.padding = "30px 10px";
+          nav.style.boxShadow = "none";
+
+          // Nav list item styles
+          navItems.style.fontSize = "1.2em";
+
+          // Logo styles
+          navLogo.style.height = "3em";
+        }
+        console.log("mobile device");
+      } else {
+        //
+        //
+        //
+
+        // For non mobile device
+
+        //
+        //
+        //
+        //
+
+        if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+          // After scroll (things are smaller)
+          nav.style.padding = "30px 10px";
+          nav.style.boxShadow = "0 5px 5px rgba(0, 0, 0, 0.5";
+
+          // Nav list item styles
+          navItems.style.fontSize = "1.7em";
+
+          // Logo styles
+          navLogo.style.height = "3em";
+        } else {
+          // Before scroll (things are UGE)
+          nav.style.padding = "50px 10px";
+          nav.style.boxShadow = "none";
+
+          // Nav list item styles
+          navItems.style.fontSize = "2em";
+
+          // Logo styles
+          navLogo.style.height = "6em";
+        }
+        console.log("not mobile device");
+      }
+    };
+
+    // calls the function to check position and change styles on nav
+    window.onscroll = () => {
+      // Needs to check if it mobile and run the mobile styles
+      // TODO: scrollFunctionMobile();
+      scrollFunction();
+    };
+
+    // Initialize and add the map
+    function initMap() {
+      // The location of Uluru
+      const uluru = { lat: 41.75763061220598, lng: -111.80356313138749 };
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 20,
+        center: uluru,
+      });
+      // The marker, positioned at Uluru
+      const marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+      });
+    }
+  </script>
+</html>
